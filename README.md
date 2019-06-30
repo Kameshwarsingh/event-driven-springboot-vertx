@@ -16,7 +16,10 @@ Vertx is used to build the event-driven/non-blocking interaction between compone
 
 Use test data and curl commands to test.
 
-References 
+References
+
 https://vertx.io/
+
 https://spring.io/projects/spring-boot
+
 https://www.h2database.com/html/main.html
