@@ -1,4 +1,4 @@
-## event-driven-springboot-vertx
+## Event-driven and non-blocking
 Idea of this sample program is to illustrated event driven and non blocking (asynchronous) programming using Vert.x and Spring-boot. 
 This application uses Spring-boot to create standalone http service. 
 POST method is to used to create product information, GET method to retrieve product information.
@@ -17,9 +17,6 @@ Vertx is used to build the event-driven/non-blocking interaction between compone
 Use test data and curl commands to test.
 
 ## References
-
-https://vertx.io/
-
-https://spring.io/projects/spring-boot
-
-https://www.h2database.com/html/main.html
+1.  https://vertx.io/
+2.  https://spring.io/projects/spring-boot
+3.  https://www.h2database.com/html/main.html
