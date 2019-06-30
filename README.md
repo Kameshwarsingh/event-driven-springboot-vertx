@@ -3,9 +3,9 @@ Idea of this sample program is to illustrated event driven and non blocking (asy
 This application uses Spring-boot to create standalone http service. 
 POST method is to used to create product information, GET method to retrieve product information.
 
-•	Spring-boot: 	Stand-alone, Spring-boot based application
-•	Vert.x: 	Event driven (asynchronous) communication between “http request handler service” and “db/persistent handler”.
-•	H2 db (embedded): Stores product information
+1.  Spring-boot: 	Stand-alone, Spring-boot based application
+2.  Vert.x: 	Event driven (asynchronous) communication between “http request handler service” and “db/persistent handler”.
+3.  H2 db (embedded): Stores product information
 
 # Primary classes and interactions–
 1.	Application: This class starts Spring-boot application. It loads two Verticles of Vertx.
