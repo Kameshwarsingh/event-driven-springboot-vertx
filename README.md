@@ -4,9 +4,9 @@ This application uses Spring-boot to create standalone http service.
 POST method is to to create Product, GET method to retrieve Product.
 
 
-1.  Spring-boot: 	Stand-alone, Spring-boot based application
-2.  Vert.x: 	Event driven (asynchronous) communication between “http request handler service” and “db/persistent handler”.
-3.  H2 db (embedded): Stores product information
+1.  Spring-boot: 	Used for creating stand-alone, spring-boot based application
+2.  Vert.x: 	Used for event-driven (asynchronous) communication between “http-request handler/service” and “db/persistent handler”.
+3.  H2 db (embedded): Used for storing product information.
 
 
 ### Primary java classes and interactions
