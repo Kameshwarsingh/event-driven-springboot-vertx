@@ -14,7 +14,13 @@ POST method is to used to create product information, GET method to retrieve pro
 4.	ProductService: This service persists/interacts with db H2
 Vertx is used to build the event-driven/non-blocking interaction between components.
 
-Use test data and curl commands to test.
+Use test data and curl commands to validate.
+  curl -v -X "POST" -H "Content-Type: application/json" -d @test-data1.json  http://127.0.0.1:8080/product
+  curl -v -X "POST" -H "Content-Type: application/json" -d @test-data2.json  http://127.0.0.1:8080/product
+  
+  curl -v -X "GET"  http://127.0.0.1:8080/product
+  curl -v -X "GET"  http://127.0.0.1:8080/product/1
+  curl -v -X "GET"  http://127.0.0.1:8080/product/2
 
 ## References
 1.  https://vertx.io/
