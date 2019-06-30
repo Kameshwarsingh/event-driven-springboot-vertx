@@ -1,8 +1,7 @@
 ## Event-driven and non-blocking
 Idea of this sample program is to illustrated event driven and non blocking (asynchronous) programming using Vert.x and Spring-boot. 
 This application uses Spring-boot to create standalone http service.
-
-POST method is to used to create Product information, GET method to retrieve Product information.
+POST method is to to create Product, GET method to retrieve Product.
 
 
 1.  Spring-boot: 	Stand-alone, Spring-boot based application
