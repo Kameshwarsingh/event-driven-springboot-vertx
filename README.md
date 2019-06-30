@@ -1,4 +1,4 @@
-# event-driven-springboot-vertx
+## event-driven-springboot-vertx
 Idea of this sample program is to illustrated event driven and non blocking (asynchronous) programming using Vert.x and Spring-boot. 
 This application uses Spring-boot to create standalone http service. 
 POST method is to used to create product information, GET method to retrieve product information.
@@ -7,7 +7,7 @@ POST method is to used to create product information, GET method to retrieve pro
 2.  Vert.x: 	Event driven (asynchronous) communication between “http request handler service” and “db/persistent handler”.
 3.  H2 db (embedded): Stores product information
 
-# Primary classes and interactions–
+## Primary classes and interactions
 1.	Application: This class starts Spring-boot application. It loads two Verticles of Vertx.
 2.	HttpServerVerticle: This vertx verticle listens to http and forwards requests to db/persistent Verticle.
 3.	ProductVerticle: This vertx verticle manages db/persistent services, such as creating product in db, fetching product information from db.
@@ -16,7 +16,7 @@ Vertx is used to build the event-driven/non-blocking interaction between compone
 
 Use test data and curl commands to test.
 
-# References
+## References
 
 https://vertx.io/
 
