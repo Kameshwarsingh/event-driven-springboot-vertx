@@ -1,0 +1,7 @@
+
+curl -v -X "POST" -H "Content-Type: application/json" -d @test-data1.json  http://127.0.0.1:8080/product
+curl -v -X "POST" -H "Content-Type: application/json" -d @test-data2.json  http://127.0.0.1:8080/product
+
+curl -v -X "GET"  http://127.0.0.1:8080/product
+curl -v -X "GET"  http://127.0.0.1:8080/product/1
+curl -v -X "GET"  http://127.0.0.1:8080/product/2
