@@ -10,10 +10,11 @@ POST method is to to create Product, GET method to retrieve Product.
 
 
 ### Classes and responsibilities
-1.	Application: This class starts Spring-boot application. It loads two Verticles of Vertx.
-2.	HttpServerVerticle: This vertx verticle listens to http and forwards requests to db/persistent Verticle.
-3.	ProductVerticle: This vertx verticle manages db/persistent services, such as creating product in db, fetching product information from db.
-4.	ProductService: This service persists/interacts with db H2
+1.	Application: This class starts Spring-boot application and also initiates the verticles.
+2.	HttpServerVerticle: This verticle listens to http, maps route/uri to handler, and forwards requests (non-blocking) to ProductVerticle.
+3.	ProductVerticle: This verticle listens for non-blocking request from "HttpServerVerticle". It creates/fetches Product from db.
+4.	ProductService: This service persists/fetches product information in db (h2 database)
+
 Vertx is used to build the event-driven/non-blocking interaction between components.
 
 
