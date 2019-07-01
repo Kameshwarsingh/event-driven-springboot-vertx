@@ -11,7 +11,7 @@ POST method is to to create Product, GET method to retrieve Product.
 
 ### Classes and responsibilities
 1.	Application: This class starts Spring-boot application and also initiates the verticles.
-2.	HttpServerVerticle: This verticle listens to http, maps route/uri to handler, and forwards requests (non-blocking) to ProductVerticle.
+2.	HttpServerVerticle: This verticle listens to http request, maps route/uri to handler, and forwards requests (non-blocking) to ProductVerticle.
 3.	ProductVerticle: This verticle listens for non-blocking request from "HttpServerVerticle". It creates/fetches Product from db.
 4.	ProductService: This service persists/fetches product information in db (h2 database)
 
