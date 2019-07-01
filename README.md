@@ -9,7 +9,7 @@ POST method is to to create Product, GET method to retrieve Product.
 3.  H2 db (embedded): Used for storing product information.
 
 
-### Primary java classes and interactions
+### Classes and responsibilities
 1.	Application: This class starts Spring-boot application. It loads two Verticles of Vertx.
 2.	HttpServerVerticle: This vertx verticle listens to http and forwards requests to db/persistent Verticle.
 3.	ProductVerticle: This vertx verticle manages db/persistent services, such as creating product in db, fetching product information from db.
