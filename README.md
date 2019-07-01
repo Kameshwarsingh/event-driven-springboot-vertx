@@ -17,7 +17,7 @@ POST method is to to create Product, GET method to retrieve Product.
 Vertx is used to build the event-driven/non-blocking interaction between components.
 
 
-### Validate.
+### Command to add and fetch product.
   1.  curl -v -X "POST" -H "Content-Type: application/json" -d @test-data1.json  http://127.0.0.1:8080/product
   2.  curl -v -X "POST" -H "Content-Type: application/json" -d @test-data2.json  http://127.0.0.1:8080/product
   3.  curl -v -X "GET"  http://127.0.0.1:8080/product
