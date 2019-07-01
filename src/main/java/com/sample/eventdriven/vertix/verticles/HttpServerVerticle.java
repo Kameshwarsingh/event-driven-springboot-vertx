@@ -21,50 +21,22 @@ public class HttpServerVerticle extends AbstractVerticle {
 		final int port = config().getInteger("http.port", 8080);
 
 		Router router = Router.router(vertx);
-		router.get("/product").handler(this::getAllPeople);
-		router.get("/product/:id").handler(this::getPerson);
+		router.get("/product").handler(this::getAllProducts);
+		router.get("/product/:id").handler(this::getProduct);
 		
 		router.route().handler(BodyHandler.create());
-		router.post("/product").handler(this::createPerson);
+		router.post("/product").handler(this::createProduct);
 		
 		vertx.createHttpServer().requestHandler(router).listen(port);
 
 	}
 
-	private void getAllPeople(RoutingContext routingContext) {
-		
-		vertx.eventBus().<String>send(ProductVerticle.GET_ALL_PRODUCT,"",result-> {
-			if (result.succeeded()) {
-				routingContext.response().putHeader(CONTENT_TYPE_HEADER,APPLICATION_JSON)
-				.setStatusCode(200)
-				.end(result.result().body());
-			} else {
-				routingContext.response()
-				.setStatusCode(500)
-				.end();
-			}
-			
-		});
-	}
-
-	private void getPerson(RoutingContext routingContext) {
-		final Long id = Long.valueOf(routingContext.request().getParam("id"));
-		vertx.eventBus().<String>send(ProductVerticle.GET_PRODUCT,id,result-> {
-			if (result.succeeded()) {
-				routingContext.response().putHeader(CONTENT_TYPE_HEADER,APPLICATION_JSON)
-				.setStatusCode(200)
-				.end(result.result().body());
-			} else {
-				routingContext.response()
-				.setStatusCode(500)
-				.end();
-			}
-			
-		});
-	}
-
-	private void createPerson(RoutingContext routingContext) {
+	// send request on event-bus "CREATE_PRODUCT"
+	private void createProduct(RoutingContext routingContext) {
 		JsonObject request = routingContext.getBodyAsJson();
+		
+		//make non-blocking call, and wait for callback. Reply handler is inline
+		//EventBus send(String address, Object message, Handler<AsyncResult<Message<T>>> replyHandler);
 		vertx.eventBus().<String>send(ProductVerticle.CREATE_PRODUCT,request,result-> {
 			if (result.succeeded()) {
 				routingContext.response().putHeader(CONTENT_TYPE_HEADER,APPLICATION_JSON)
@@ -79,4 +51,46 @@ public class HttpServerVerticle extends AbstractVerticle {
 		});
 
 	}
+	
+	// send request on event-bus "GET_ALL_PRODUCT"
+	private void getAllProducts(RoutingContext routingContext) {
+		
+		//make non-blocking call, and wait for callback. Reply handler is inline
+		//EventBus send(String address, Object message, Handler<AsyncResult<Message<T>>> replyHandler);
+		vertx.eventBus().<String>send(ProductVerticle.GET_ALL_PRODUCT,"",result-> {
+			if (result.succeeded()) {
+				routingContext.response().putHeader(CONTENT_TYPE_HEADER,APPLICATION_JSON)
+				.setStatusCode(200)
+				.end(result.result().body());
+			} else {
+				routingContext.response()
+				.setStatusCode(500)
+				.end();
+			}
+			
+		});
+	}
+
+	// send request on event-bus "GET_PRODUCT"
+	private void getProduct(RoutingContext routingContext) {
+		
+		final Long id = Long.valueOf(routingContext.request().getParam("id"));
+		
+		//make non-blocking call, and wait for callback. Reply handler is inline
+		//EventBus send(String address, Object message, Handler<AsyncResult<Message<T>>> replyHandler);
+		vertx.eventBus().<String>send(ProductVerticle.GET_PRODUCT,id,result-> {
+			if (result.succeeded()) {
+				routingContext.response().putHeader(CONTENT_TYPE_HEADER,APPLICATION_JSON)
+				.setStatusCode(200)
+				.end(result.result().body());
+			} else {
+				routingContext.response()
+				.setStatusCode(500)
+				.end();
+			}
+			
+		});
+	}
+
+	
 }

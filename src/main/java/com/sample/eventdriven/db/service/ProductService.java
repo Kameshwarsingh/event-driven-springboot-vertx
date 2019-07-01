@@ -33,7 +33,7 @@ public Product getProduct(Long id) {
 }
 
 public Product save(ProductRequest productRequest) {
-	final ProductEntity personEntity = ProductEntity.from(productRequest);
+	ProductEntity personEntity = new ProductEntity(productRequest.getProductName(), productRequest.getProductType(), productRequest.getCost());
 	productRepository.save(personEntity);
 	return new Product(personEntity);
 }

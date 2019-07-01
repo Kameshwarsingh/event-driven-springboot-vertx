@@ -63,13 +63,11 @@ public class ProductEntity {
 		this.cost = cost;
 	}
 
-	public static ProductEntity from(ProductRequest productRequest) {
-		return new ProductEntity(productRequest.getProductName(), productRequest.getProductType(), productRequest.getCost());
-	}
 
 	@Override
 	public String toString() {
 		return "ProductEntity{" + "id=" + id + ", productName=\'" + productName + "\',productType=\'" + productType + "\'}";
 	}
-
+	
+	
 }
