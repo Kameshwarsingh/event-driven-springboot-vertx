@@ -10,7 +10,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<spring-boot.version>2.1.6.RELEASE</spring-boot.version>
-		<vertx.version>3.6.2</vertx.version>
+		<vertx.version>3.9.4</vertx.version>
 		<h2.version>1.4.199</h2.version>
 		<start-class>com.sample.eventdriven.Application</start-class>
 	</properties>
